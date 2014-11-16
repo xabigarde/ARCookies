@@ -19,6 +19,14 @@ public class MainMenu : MonoBehaviour {
 	private float buttonLeft2 = 0;
 	
 
+	void Update(){
+		// back button pressed on android
+		if (Input.GetKeyDown(KeyCode.Escape)) { 
+			//Application.Quit();
+			Debug.Log("pressed back button start");
+		}
+	}
+
 	protected void Awake(){
 		buttonHeight1 = Screen.height / 8;
 		buttonHeight2 = Screen.height / 10;
@@ -29,6 +37,7 @@ public class MainMenu : MonoBehaviour {
 		buttonLeft1 = (Screen.width - buttonWidth1) / 2f;
 		buttonLeft2 = (Screen.width - buttonWidth2) / 2f;
 	}
+
 
 	protected void OnGUI()
 	{
