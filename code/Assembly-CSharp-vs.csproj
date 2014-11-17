@@ -49,6 +49,7 @@
      <Compile Include="assets\Scripts\AutoRotate.cs" />
      <Compile Include="assets\Scripts\Copierer.cs" />
      <Compile Include="assets\Scripts\GUIController.cs" />
+     <Compile Include="assets\Scripts\GameLogic.cs" />
      <Compile Include="assets\Scripts\GyroController.cs" />
      <Compile Include="assets\Scripts\MainMenu.cs" />
      <Compile Include="assets\Scripts\MouseCameraControl.cs" />
