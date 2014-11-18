@@ -54,7 +54,7 @@
      <Compile Include="assets\Scripts\MainMenu.cs" />
      <Compile Include="assets\Scripts\MouseCameraControl.cs" />
      <Compile Include="assets\Scripts\Radar.cs" />
-     <Compile Include="assets\Scripts\RotateTest.cs" />
+     <Compile Include="assets\Scripts\RadarTest.cs" />
      <Compile Include="assets\Scripts\SimpleMouseOrbit.cs" />
      <Compile Include="assets\Scripts\Spinner.cs" />
      <Compile Include="assets\Scripts\WebCamController.cs" />

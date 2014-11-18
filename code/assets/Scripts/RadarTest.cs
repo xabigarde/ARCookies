@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RotateTest : MonoBehaviour {
+public class RadarTest : MonoBehaviour {
 
 	public Texture blip  ;
 	//public Texture radarBG ;
