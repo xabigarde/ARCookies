@@ -4,9 +4,13 @@ using System.Collections;
 public class GUIController : MonoBehaviour {
 
 	public GUISkin guiskinbackground;
+	public GUISkin guiskinbackground2;
 	private float w = 0;
 	private float h = 0;
 	private float top = 0;
+	private float square = 0;
+	private float square2 = 0;
+	private float monsterL = 0;
 	public Font f;
 
 	// Use this for initialization
@@ -26,25 +30,51 @@ public class GUIController : MonoBehaviour {
 
 	void Awake(){
 		w = Screen.width;
-		h = Screen.width / 2.54f;
-		top = Screen.height - h;
+		h = Screen.height;
+		square = w / 7f;
+		square2 = h / 5;
+		monsterL = w / 2 - square / 2;
 	}
 
 	void OnGUI(){
+
+		// display the monster
 		GUI.skin = guiskinbackground;
+		// calculate the middle of the screen
+		GUI.Box(new Rect (w/2-square/2, h - square, square, square), "");
 
-
-		GUI.Box(new Rect (0, top, w, h), "");
-
-		// score
+		// display the score
 		if (!f) {
 			Debug.LogError("No font found, assign one in the inspector.");
 			return;
 		}
 		GUI.skin.font = f;
+		//GUI.backgroundColor = Color.yellow;
+
+		//GUI.skin = guiskinbackground2;
 		GUIStyle style = new GUIStyle ();
-		style.fontSize = 70;
+		style.fontSize = 40;
 		style.fontStyle = FontStyle.Bold;
-		GUI.Label(new Rect(Screen.width/6.9f, Screen.height - h/2.5f, Screen.width, h), GameLogic.Instance.Points.ToString(),style);
+		style.padding = new RectOffset (10, 10, 10, 10);
+		style.normal.background = MakeTex( 2, 2, new Color( 1f, 1f, 1f, 0.5f ) );
+		//GUI.Box(new Rect (0, 100 ,100, 100), GameLogic.Instance.Points.ToString(),style);
+		GUI.Label(new Rect(0, h - square ,square, square), GameLogic.Instance.Points.ToString(),style);
+
+		//GUI.Label(new Rect(0, 0 ,square2, square2), "",style);
+
+
+	}
+
+	private Texture2D MakeTex( int width, int height, Color col )
+	{
+		Color[] pix = new Color[width * height];
+		for( int i = 0; i < pix.Length; ++i )
+		{
+			pix[ i ] = col;
+		}
+		Texture2D result = new Texture2D( width, height );
+		result.SetPixels( pix );
+		result.Apply();
+		return result;
 	}
 }
