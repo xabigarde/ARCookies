@@ -8,8 +8,8 @@ public class RadarTest : MonoBehaviour {
 	public Texture centerBG;
 	
 	public int blipSize = 6;
-	public int posX = 295;
-	public int posY = 325;
+	public int posX = Screen.height-64;
+	public int posY = Screen.width-64;
 	
 	public Transform centerObject ;
 	public float mapScale = 2.0f;
