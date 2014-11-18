@@ -3,6 +3,10 @@ using System.Collections;
 
 public class WebCamController : MonoBehaviour {
 
+	Quaternion baseRotation;
+	WebCamTexture webcamTex;
+
+
 	// Use this for initialization
 	void Start () {
 		/*
@@ -14,9 +18,12 @@ public class WebCamController : MonoBehaviour {
 		}
 
 		Debug.Log (WebCamTexture.devices.ToString ());*/
-		WebCamTexture webcamTex = new WebCamTexture ();
+
+		webcamTex = new WebCamTexture ();
 		guiTexture.texture = webcamTex;
 		//renderer.material.mainTexture = webcamTex;
+
+		baseRotation = transform.rotation;
 
 		webcamTex.Play ();
 
@@ -31,6 +38,7 @@ public class WebCamController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		transform.rotation = baseRotation * Quaternion.AngleAxis(webcamTex.videoRotationAngle, Vector3.up);
+		//guiTexture.transform.localScale = new Vector3(1,1,1);
 	}
 }
