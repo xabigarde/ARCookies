@@ -12,7 +12,7 @@ public class Copierer : MonoBehaviour {
 	public int radiusOfAppearing = 20;
 	public int amountOfCookies = 5;
 
-	public Font f;
+
 
 	private int timer = 0;
 	private int index = 1;
@@ -90,16 +90,4 @@ public class Copierer : MonoBehaviour {
 
 	}
 
-	void OnGUI()
-	{
-		if (!f) {
-			Debug.LogError("No font found, assign one in the inspector.");
-			return;
-		}
-		GUI.skin.font = f;
-		GUIStyle style = new GUIStyle ();
-		style.fontSize = 40;
-		style.fontStyle = FontStyle.Bold;
-		GUI.Label(new Rect(55, Screen.height-70, 200, 100), GameLogic.Instance.Points.ToString(),style);
-	}
 }

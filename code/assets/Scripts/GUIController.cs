@@ -7,6 +7,7 @@ public class GUIController : MonoBehaviour {
 	private float w = 0;
 	private float h = 0;
 	private float top = 0;
+	public Font f;
 
 	// Use this for initialization
 	void Start () {
@@ -34,5 +35,16 @@ public class GUIController : MonoBehaviour {
 
 
 		GUI.Box(new Rect (0, top, w, h), "");
+
+		// score
+		if (!f) {
+			Debug.LogError("No font found, assign one in the inspector.");
+			return;
+		}
+		GUI.skin.font = f;
+		GUIStyle style = new GUIStyle ();
+		style.fontSize = 70;
+		style.fontStyle = FontStyle.Bold;
+		GUI.Label(new Rect(Screen.width/6.9f, Screen.height - h/2.5f, Screen.width, h), GameLogic.Instance.Points.ToString(),style);
 	}
 }
