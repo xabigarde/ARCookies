@@ -14,21 +14,35 @@ public class Copierer : MonoBehaviour {
 
 
 
-	private int timer = 0;
+	float timer = 0;
 	private int index = 1;
 	private List<GameObject> _list = new List<GameObject>();
 	private GameObject hittedGameObject;
 	private GameObject instantiateGameObject;
+	private GameLogic game;
+	private  float count;
+	private int startTime;
+	private bool startCountdown = false;
+
 
 	// Use this for initialization
 	void Start () {
 		// try to add first cookie! 
 		//_list.Add (gameObject);
-
+		game = GameLogic.Instance;
+		count = Time.time;
+		startTime = game.Countdown;
+		startCountdown = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//timer = (Mathf.CeilToInt((timer - Time.deltaTime)))/10;
+		if (startCountdown) {
+				count += Time.deltaTime * 1;
+
+				game.Countdown = startTime - (int)Mathf.Ceil (count % 60);
+		}
 
 		// left mouse click
 		if (Input.GetButtonDown("Fire1")) {
@@ -84,7 +98,6 @@ public class Copierer : MonoBehaviour {
 
 
 	private void scorePoints(){
-		GameLogic game = GameLogic.Instance;
 		game.addPoint ();
 
 

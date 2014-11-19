@@ -4,7 +4,7 @@ public sealed class GameLogic {
 	static readonly GameLogic _instance = new GameLogic();
 
 	private int points = 0;
-	private int time = 90;
+	private int countdown = 90;
 
 	public static GameLogic Instance
 	{
@@ -28,6 +28,16 @@ public sealed class GameLogic {
 			this.points = value;
 		}
 	}
+
+	public int Countdown{
+		get{
+			return this.countdown;
+		}
+		set{
+			this.countdown = value;
+		}
+	}
+
 	public void addPoint(){
 		points++;
 	}

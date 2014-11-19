@@ -28,13 +28,13 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	protected void Awake(){
-		buttonHeight1 = Screen.height / 8;
+		buttonHeight1 = Screen.height / 4;
 		buttonHeight2 = Screen.height / 10;
-		buttonWidth1 =  Screen.width / 1.5f;
+		buttonWidth1 =  Screen.width / 3;
 		buttonWidth2 =  Screen.width / 2f;
-		buttonPos1 = buttonHeight1;
+		buttonPos1 = (Screen.height - buttonHeight1) / 2f;
 		buttonPos2 = buttonHeight1 * 2.5f;
-		buttonLeft1 = (Screen.width - buttonWidth1) / 2f;
+		buttonLeft1 = buttonWidth1 / 2;
 		buttonLeft2 = (Screen.width - buttonWidth2) / 2f;
 	}
 
@@ -56,11 +56,11 @@ public class MainMenu : MonoBehaviour {
 			Application.LoadLevel("WebCamScene");
 		}
 
-		GUI.skin = guiskinButton2;
+		//GUI.skin = guiskinButton2;
 		
-		if (GUI.Button(new Rect(buttonLeft2, buttonPos2, buttonWidth2, buttonHeight2),"about"))
+		/*if (GUI.Button(new Rect(buttonLeft2, buttonPos2, buttonWidth2, buttonHeight2),"about"))
 		{
 			Debug.Log("test");
-		}
+		}*/
 	}
 }

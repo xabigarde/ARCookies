@@ -13,6 +13,7 @@ public class GUIController : MonoBehaviour {
 	private float monsterL = 0;
 	public Font f;
 
+
 	// Use this for initialization
 	void Start () {
 	
@@ -58,8 +59,8 @@ public class GUIController : MonoBehaviour {
 		style.padding = new RectOffset (10, 10, 10, 10);
 		style.normal.background = MakeTex( 2, 2, new Color( 1f, 1f, 1f, 0.5f ) );
 		//GUI.Box(new Rect (0, 100 ,100, 100), GameLogic.Instance.Points.ToString(),style);
-		GUI.Label(new Rect(0, h - square ,square, square), GameLogic.Instance.Points.ToString(),style);
-
+		GUI.Label(new Rect(0, h - square ,square, square), "cookies\n" + GameLogic.Instance.Points.ToString(),style);
+		GUI.Label(new Rect(w-square, h - square ,square, square), "time\n" + GameLogic.Instance.Countdown.ToString(),style);
 		//GUI.Label(new Rect(0, 0 ,square2, square2), "",style);
 
 
