@@ -4,21 +4,23 @@ using System.Collections;
 public class RadarTest : MonoBehaviour {
 
 	public Texture blip  ;
-	//public Texture radarBG ;
+	public Texture radarBG ;
 	public Texture centerBG;
 	
-	public int blipSize = 6;
-	public int posX = Screen.height-64;
-	public int posY = Screen.width-64;
+	private int blipSize = Screen.height/40;
+	private int posX = 0;
+	private int posY = 0;
 	
 	public Transform centerObject ;
-	public float mapScale = 2.0f;
-	public Vector2 mapCenter = new Vector2(50,50);
+	public float mapScale = 1.5f;
+	//private Vector2 mapCenter = new Vector2(50,50);
 	public string tagFilter =  "Cookie";
-	public float maxDist = 200;
+	private float maxDist = Screen.height/4;
 	
 	void OnGUI()
 	{
+		posX = (Screen.height / 4) / 2;
+		posY = posX;
 		
 		//  GUI.matrix = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, Vector3(Screen.width / 600.0, Screen.height / 450.0, 1));
 		
@@ -27,9 +29,12 @@ public class RadarTest : MonoBehaviour {
 		//      float bY=centerObject.transform.position.z * mapScale;
 		
 		
-		GUI.DrawTexture(new Rect(mapCenter.x+posX-3,mapCenter.y+posY-3,blipSize,blipSize),centerBG);
-		
-		//GUI.DrawTexture(new Rect(mapCenter.x+posX,mapCenter.y+posY,64,64),radarBG);
+
+		GUI.DrawTexture(new Rect(0,0,Screen.height/4,Screen.height/4),radarBG);
+
+		GUI.DrawTexture(new Rect(posX - (Screen.height/40)/2,posY - (Screen.height/40)/2,blipSize,blipSize),centerBG);
+				
+
 		DrawBlipsFor(tagFilter);
 		
 	}
@@ -71,7 +76,7 @@ public class RadarTest : MonoBehaviour {
 		if(dist<= maxDist)
 		{
 			// this is the diameter of our largest radar circle
-			GUI.DrawTexture(new Rect(mapCenter.x+posX+bX,mapCenter.y+posY+bY,blipSize,blipSize),aTexture);
+			GUI.DrawTexture(new Rect(posX+bX,posY+bY,blipSize,blipSize),aTexture);
 		}
 		
 	}
